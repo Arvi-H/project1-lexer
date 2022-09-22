@@ -11,12 +11,15 @@ enum class TokenType {
 
 class Token {
 private:
-    // TODO: add member variables for information needed by Token
+    TokenType type;
+    std::string description;
+    int line;
 
 public:
     Token(TokenType type, std::string description, int line);
 
-    // TODO: add other needed methods
+    std::string TokenConverter(TokenType type);
+    std::string toString();
 };
 
 #endif // TOKEN_H
