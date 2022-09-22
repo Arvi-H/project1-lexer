@@ -13,8 +13,11 @@ std::string Token::TokenConverter(TokenType type) {
         return "COLON";;
     case TokenType::COLON_DASH:
         return "COLON_DASH";
-    default:
+    case TokenType::UNDEFINED:
         return "UNDEFINED";
+    case TokenType::ENDFILE:
+        return "ENDFILE";
+    default: return "Read Error";
     }
 }
 

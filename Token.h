@@ -6,7 +6,8 @@ enum class TokenType {
     COLON,
     COLON_DASH,
     // TODO: add the other types of tokens
-    UNDEFINED
+    UNDEFINED, 
+    ENDFILE
 };
 
 class Token {
@@ -23,4 +24,3 @@ public:
 };
 
 #endif // TOKEN_H
-

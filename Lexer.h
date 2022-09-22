@@ -9,19 +9,17 @@ class Lexer
 private:
     std::vector<Automaton*> automata;
     std::vector<Token*> tokens;
+    Token *newToken;
 
     void CreateAutomata();
-
-    // TODO: add any other private methods here (if needed)
+    Automaton *maxAutomata;
 
 public:
     Lexer();
     ~Lexer();
 
     void Run(std::string& input);
-    
-    // TODO: add other public methods here
-
+    void printToken();
 };
 
 #endif // LEXER_H
