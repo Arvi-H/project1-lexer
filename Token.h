@@ -9,6 +9,7 @@ enum class TokenType {
     PERIOD,
     QUESTION,
     RIGHT_PAREN,
+    LEFT_PAREN,
     UNDEFINED, 
     ENDFILE
 };

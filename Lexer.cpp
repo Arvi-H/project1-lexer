@@ -5,6 +5,7 @@
 #include "PeriodAutomaton.h"
 #include "QuestionAutomaton.h"
 #include "RightParenAutomaton.h"
+#include "LeftParenAutomaton.h"
 #include <iostream>
 
 Lexer::Lexer() {
@@ -34,7 +35,7 @@ void Lexer::CreateAutomata() {
     automata.push_back(new PeriodAutomaton());
     automata.push_back(new QuestionAutomaton());
     automata.push_back(new RightParenAutomaton());
-    // TODO: Add the other needed automata here
+    automata.push_back(new LeftParenAutomaton());
 }
 
 void Lexer::Run(std::string& input) {

@@ -21,6 +21,8 @@ std::string Token::TokenConverter(TokenType type) {
         return "QUESTION";
     case TokenType::RIGHT_PAREN:
         return "RIGHT_PAREN";
+    case TokenType::LEFT_PAREN:
+        return "LEFT_PAREN";
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:
