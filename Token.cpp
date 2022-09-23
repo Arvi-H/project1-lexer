@@ -17,6 +17,8 @@ std::string Token::TokenConverter(TokenType type) {
         return "COMMA";
     case TokenType::PERIOD:
         return "PERIOD";
+    case TokenType::QUESTION:
+        return "QUESTION";
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:

@@ -7,6 +7,7 @@ enum class TokenType {
     COLON_DASH,
     COMMA,
     PERIOD,
+    QUESTION,
     UNDEFINED, 
     ENDFILE
 };

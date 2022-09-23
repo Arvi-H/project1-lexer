@@ -3,6 +3,7 @@
 #include "ColonDashAutomaton.h"
 #include "CommaAutomaton.h"
 #include "PeriodAutomaton.h"
+#include "QuestionAutomaton.h"
 #include <iostream>
 
 Lexer::Lexer() {
@@ -30,6 +31,7 @@ void Lexer::CreateAutomata() {
     automata.push_back(new ColonDashAutomaton());
     automata.push_back(new CommaAutomaton());
     automata.push_back(new PeriodAutomaton());
+    automata.push_back(new QuestionAutomaton());
     // TODO: Add the other needed automata here
 }
 
@@ -77,8 +79,8 @@ void Lexer::Run(std::string& input) {
 
         
         // add end of file token to all tokens
-            newToken = new Token(TokenType::ENDFILE, "", lineNumber);
-            tokens.push_back(newToken);
+            // newToken = new Token(TokenType::ENDFILE, "", lineNumber);
+            // tokens.push_back(newToken);
     }
     
 }
