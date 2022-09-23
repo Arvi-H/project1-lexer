@@ -16,6 +16,7 @@ enum class TokenType {
     QUERIES,
     ID,
     STRING,
+    COMMENT,
     UNDEFINED, 
     ENDFILE
 };

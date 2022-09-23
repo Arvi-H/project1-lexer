@@ -35,6 +35,8 @@ std::string Token::TokenConverter(TokenType type) {
         return "ID";
     case TokenType::STRING:
         return "STRING";
+    case TokenType::COMMENT:
+        return "COMMENT";
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:
