@@ -44,7 +44,7 @@ std::string Token::TokenConverter(TokenType type) {
 std::string Token::toString() {
     std::stringstream out;
 
-    out << "(" << TokenConverter(type) << "," << " \" " << description << " \" " << "," << line << ")";
+    out << "(" << TokenConverter(type) << "," << " \"" << description << "\" " << "," << line << ")";
     
     return out.str();
 }

@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 // Run Lexer
     Lexer* lexer = new Lexer();
     lexer->Run(myFileString);
-    lexer->printToken();
+    lexer->printTotalTokens();
 
     delete lexer;
     return 0;
