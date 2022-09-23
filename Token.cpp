@@ -13,6 +13,10 @@ std::string Token::TokenConverter(TokenType type) {
         return "COLON";;
     case TokenType::COLON_DASH:
         return "COLON_DASH";
+    case TokenType::COMMA:
+        return "COMMA";
+    case TokenType::PERIOD:
+        return "PERIOD";
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:

@@ -11,15 +11,11 @@ protected:
     TokenType type;
 
 public:
-    // Default constructor -- since we have a constructor that takes a parameter,
-    //   the compiler will autogenerate a default constructor if not explicit.
     Automaton() : Automaton(TokenType::UNDEFINED) {}
-
     Automaton(TokenType type) { this->type = type; }
 
-    // Start the automaton and return the number of characters read
-    //   read == 0 indicates the input was rejected
-    //   read  > 0 indicates the input was accepted
+    virtual ~Automaton() = default;
+    
     int Start(const std::string& input) {
         newLines = 0;
         inputRead = 0;
