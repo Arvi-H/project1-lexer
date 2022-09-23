@@ -6,6 +6,7 @@
 #include "QuestionAutomaton.h"
 #include "RightParenAutomaton.h"
 #include "LeftParenAutomaton.h"
+#include "SchemesAutomaton.h"
 #include <iostream>
 
 Lexer::Lexer() {
@@ -36,6 +37,7 @@ void Lexer::CreateAutomata() {
     automata.push_back(new QuestionAutomaton());
     automata.push_back(new RightParenAutomaton());
     automata.push_back(new LeftParenAutomaton());
+    automata.push_back(new SchemesAutomaton());
 }
 
 void Lexer::Run(std::string& input) {
@@ -47,7 +49,7 @@ void Lexer::Run(std::string& input) {
         maxAutomata = automata.at(0);
         
         // You need to handle whitespace in between tokens
-        if(isspace(input.at(0))) {
+        while(isspace(input.at(0))) {
             if (input.at(0) == '\n') {
                 lineNumber++; // continue
             }
@@ -93,5 +95,5 @@ void Lexer::printToken() {
         std::cout << tokens.front()->toString() << std::endl;
         tokens.erase(tokens.begin());
     }
-    std::cout << "Total Tokens = " << totalTokens;
+    std::cout << "Total Tokens = " << totalTokens << std::endl;
 }

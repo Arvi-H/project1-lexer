@@ -19,7 +19,6 @@ public:
     int Start(const std::string& input) {
         newLines = 0;
         inputRead = 0;
-        index = 0;
         S0(input);
         return inputRead;
     }

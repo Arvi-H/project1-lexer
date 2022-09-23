@@ -1,7 +1,7 @@
 #include "RightParenAutomaton.h"
 
 void RightParenAutomaton::S0(const std::string& input) {
-    if (input[index] == ')') {
+    if (input[inputRead] == ')') {
         inputRead = 1;
     }
 }

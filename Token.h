@@ -10,6 +10,7 @@ enum class TokenType {
     QUESTION,
     RIGHT_PAREN,
     LEFT_PAREN,
+    SCHEMES,
     UNDEFINED, 
     ENDFILE
 };
