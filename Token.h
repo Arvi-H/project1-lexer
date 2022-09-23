@@ -14,6 +14,7 @@ enum class TokenType {
     FACTS,
     RULES,
     QUERIES,
+    ID,
     UNDEFINED, 
     ENDFILE
 };

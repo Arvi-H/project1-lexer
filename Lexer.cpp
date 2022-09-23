@@ -10,6 +10,7 @@
 #include "FactsAutomaton.h"
 #include "RulesAutomaton.h"
 #include "QueriesAutomaton.h"
+#include "IDAutomaton.h"
 #include <iostream>
 
 Lexer::Lexer() {
@@ -44,6 +45,7 @@ void Lexer::CreateAutomata() {
     automata.push_back(new FactsAutomaton());
     automata.push_back(new RulesAutomaton());
     automata.push_back(new QueriesAutomaton());
+    automata.push_back(new IDAutomaton());
 }
 
 void Lexer::Run(std::string& input) {
