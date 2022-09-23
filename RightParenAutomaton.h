@@ -10,6 +10,6 @@ public:
     void S0(const std::string& input);
 };
 
-#endif // COLONAUTOMATON_H
+#endif // RIGHT_PAREN_AUTOMATON_H
 
 

@@ -16,6 +16,6 @@ public:
     void S6(const std::string& input);
 };
 
-#endif // COLONAUTOMATON_H
+#endif // SCHEMES_AUTOMATON_H
 
 

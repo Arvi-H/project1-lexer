@@ -10,5 +10,5 @@ public:
     void S0(const std::string& input);
 };
 
-#endif // COLONAUTOMATON_H
+#endif // COMMA_AUTOMATON_H
 

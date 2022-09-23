@@ -33,6 +33,8 @@ std::string Token::TokenConverter(TokenType type) {
         return "QUERIES";
     case TokenType::ID:
         return "ID";
+    case TokenType::STRING:
+        return "STRING";
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:

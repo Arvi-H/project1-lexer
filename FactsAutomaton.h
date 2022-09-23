@@ -14,6 +14,6 @@ public:
     void S4(const std::string& input);
 };
 
-#endif // COLONAUTOMATON_H
+#endif // FACTS_AUTOMATON_H
 
 

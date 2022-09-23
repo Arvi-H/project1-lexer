@@ -16,6 +16,6 @@ public:
     void S6(const std::string& input);
 };
 
-#endif // COLONAUTOMATON_H
+#endif // QUERIES_AUTOMATON_H
 
 
