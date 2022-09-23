@@ -8,6 +8,7 @@ enum class TokenType {
     COMMA,
     PERIOD,
     QUESTION,
+    RIGHT_PAREN,
     UNDEFINED, 
     ENDFILE
 };

@@ -4,6 +4,7 @@
 #include "CommaAutomaton.h"
 #include "PeriodAutomaton.h"
 #include "QuestionAutomaton.h"
+#include "RightParenAutomaton.h"
 #include <iostream>
 
 Lexer::Lexer() {
@@ -32,6 +33,7 @@ void Lexer::CreateAutomata() {
     automata.push_back(new CommaAutomaton());
     automata.push_back(new PeriodAutomaton());
     automata.push_back(new QuestionAutomaton());
+    automata.push_back(new RightParenAutomaton());
     // TODO: Add the other needed automata here
 }
 
@@ -77,7 +79,6 @@ void Lexer::Run(std::string& input) {
             tokens.push_back(newToken);
             input.erase(0, maxRead);
 
-        
         // add end of file token to all tokens
             // newToken = new Token(TokenType::ENDFILE, "", lineNumber);
             // tokens.push_back(newToken);
