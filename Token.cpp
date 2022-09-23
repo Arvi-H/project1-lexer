@@ -25,6 +25,12 @@ std::string Token::TokenConverter(TokenType type) {
         return "LEFT_PAREN";
     case TokenType::SCHEMES:
         return "SCHEMES";
+    case TokenType::FACTS:
+        return "FACTS";
+    case TokenType::RULES:
+        return "RULES";
+    case TokenType::QUERIES:
+        return "QUERIES";
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:

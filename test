@@ -5,4 +5,6 @@
 .?
 (
          )Schemes
-SchemesSchemes  :
+SchemesSchemes  :  
+
+    Rules  Queries:::- Facts

@@ -11,6 +11,9 @@ enum class TokenType {
     RIGHT_PAREN,
     LEFT_PAREN,
     SCHEMES,
+    FACTS,
+    RULES,
+    QUERIES,
     UNDEFINED, 
     ENDFILE
 };

@@ -7,6 +7,9 @@
 #include "RightParenAutomaton.h"
 #include "LeftParenAutomaton.h"
 #include "SchemesAutomaton.h"
+#include "FactsAutomaton.h"
+#include "RulesAutomaton.h"
+#include "QueriesAutomaton.h"
 #include <iostream>
 
 Lexer::Lexer() {
@@ -38,6 +41,9 @@ void Lexer::CreateAutomata() {
     automata.push_back(new RightParenAutomaton());
     automata.push_back(new LeftParenAutomaton());
     automata.push_back(new SchemesAutomaton());
+    automata.push_back(new FactsAutomaton());
+    automata.push_back(new RulesAutomaton());
+    automata.push_back(new QueriesAutomaton());
 }
 
 void Lexer::Run(std::string& input) {
