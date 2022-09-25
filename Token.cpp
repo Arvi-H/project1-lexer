@@ -40,7 +40,7 @@ std::string Token::TokenConverter(TokenType type) {
     case TokenType::UNDEFINED:
         return "UNDEFINED";
     case TokenType::ENDFILE:
-        return "ENDFILE";
+        return "EOF";
     default: return "Read Error";
     }
 }

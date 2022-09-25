@@ -106,7 +106,6 @@ void Lexer::Run(std::string& input) {
     // Update input by removing characters read to create Token
         tokens.push_back(newToken);
         input.erase(0, maxRead);
-
     }
 
 // End of File 

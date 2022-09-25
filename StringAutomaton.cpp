@@ -9,6 +9,8 @@ void StringAutomaton::S0(const std::string& input) {
     if (input[inputRead] == '\'') {
         inputRead++;
         S1(input);  
+    } else {
+        Serr();
     }
 }
 
