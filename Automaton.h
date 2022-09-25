@@ -11,6 +11,8 @@ protected:
     TokenType type;
 
 public:
+    bool multiline = false;
+    int multilineInc = 0;
     Automaton() : Automaton(TokenType::UNDEFINED) {}
     Automaton(TokenType type) { this->type = type; }
 

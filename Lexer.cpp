@@ -75,14 +75,8 @@ void Lexer::Run(std::string& input) {
 
         // Check for an empty file
             if (input.empty()) {
-                // CommentAutomaton a;
-                // if (a.multiLineComment) {
-                //     newToken = new Token(TokenType::ENDFILE, "", (lineNumber+1));
-                //     tokens.push_back(newToken);
-                // } else {
-                    newToken = new Token(TokenType::ENDFILE, "", lineNumber);
-                    tokens.push_back(newToken);
-                // }
+                newToken = new Token(TokenType::ENDFILE, "", lineNumber);
+                tokens.push_back(newToken);
                 return;
             }  
         }  
@@ -100,8 +94,10 @@ void Lexer::Run(std::string& input) {
         
     // Here is the "Max" part of the algorithm
         if (maxRead > 0) {
-            newToken = maxAutomata->CreateToken(input.substr(0, maxRead), lineNumber);
-            lineNumber += maxAutomata->NewLinesRead();
+                newToken = maxAutomata->CreateToken(input.substr(0, maxRead), lineNumber);
+                lineNumber += maxAutomata->NewLinesRead();
+
+            
     // No automaton accepted input
         } else {
             maxRead = 1;
@@ -109,16 +105,14 @@ void Lexer::Run(std::string& input) {
             newToken = new Token(TokenType::UNDEFINED, test, lineNumber);
         }
 
+        if (maxAutomata->multiline) {
+            lineNumber = lineNumber + maxAutomata->multilineInc;
+        } 
+
     // Update input by removing characters read to create Token
         tokens.push_back(newToken);
         input.erase(0, maxRead);
     }
-
-// End of File 
-    // if (input.empty()) {
-    //     newToken = new Token(TokenType::ENDFILE, "", lineNumber);
-    //     tokens.push_back(newToken);
-    // }
 }
    
 void Lexer::printTotalTokens() {
