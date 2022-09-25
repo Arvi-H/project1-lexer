@@ -33,7 +33,8 @@ void CommentAutomaton::S2(const std::string& input) {
 }
 
 void CommentAutomaton::S3(const std::string& input) { 
-    if (inputRead >= input.size()) { 
+    int size = input.size();
+    if (inputRead >= size) { 
         return;
     } else if (input.at(inputRead) != '|') {
         if (input.at(inputRead) == '\n') {

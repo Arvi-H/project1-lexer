@@ -24,14 +24,16 @@ Lexer::Lexer() {
 
 Lexer::~Lexer() {
     // Deallocate tokens memeory
-    for (int i = 0; i < tokens.size(); i++) {
+    int tokenNum = tokens.size();
+    for (int i = 0; i < tokenNum; i++) {
         delete tokens.at(i);
     }
 
     tokens.clear();
 
     // Deallocate automatas memeory
-    for (int i = 0; i < automata.size(); i++) {
+    int automatonNum = automata.size();
+    for (int i = 0; i < automatonNum; i++) {
         delete automata.at(i);
     }
 

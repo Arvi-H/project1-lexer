@@ -18,7 +18,8 @@ void StringAutomaton::S0(const std::string& input) {
 
 
 void StringAutomaton::S1(const std::string& input) {
-    if (inputRead >= input.size()) {
+    int size = input.size();
+    if (inputRead >= size) {
         terminateString = true;    
         return;
     } else if (input[inputRead] == '\'') {
