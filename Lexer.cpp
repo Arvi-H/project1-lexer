@@ -92,11 +92,30 @@ void Lexer::Run(std::string& input) {
             } 
         }  
         
+
+        if (maxAutomata->terminateString == true) {
+            maxRead += maxAutomata->inputRead;
+
+            std::string test = input.substr(0, maxRead);
+       
+       
+            newToken = new Token(TokenType::UNDEFINED, test, lineNumber);
+            tokens.push_back(newToken);
+            
+            if (maxAutomata->multiline) {
+                lineNumber += maxAutomata->multilineInc;
+            } 
+
+            newToken = new Token(TokenType::ENDFILE, "", lineNumber);
+            tokens.push_back(newToken);
+            
+            return;
+        }
+        
     // Here is the "Max" part of the algorithm
         if (maxRead > 0) {
-                newToken = maxAutomata->CreateToken(input.substr(0, maxRead), lineNumber);
-                lineNumber += maxAutomata->NewLinesRead();
-
+            newToken = maxAutomata->CreateToken(input.substr(0, maxRead), lineNumber);
+            lineNumber += maxAutomata->NewLinesRead();
             
     // No automaton accepted input
         } else {
@@ -106,9 +125,9 @@ void Lexer::Run(std::string& input) {
         }
 
         if (maxAutomata->multiline) {
-            lineNumber = lineNumber + maxAutomata->multilineInc;
+            lineNumber += maxAutomata->multilineInc;
         } 
-
+         
     // Update input by removing characters read to create Token
         tokens.push_back(newToken);
         input.erase(0, maxRead);

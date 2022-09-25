@@ -21,10 +21,6 @@ void CommentAutomaton::S1(const std::string& input) {
         inputRead++;
         S3(input);
      }
-
-    // if (input.at(0) == '\n') {
-    //     inputRead++; 
-    // }
 } 
 
 void CommentAutomaton::S2(const std::string& input) { 
@@ -34,22 +30,16 @@ void CommentAutomaton::S2(const std::string& input) {
     } else {
         return;
     }
-
-    // if (input.at(0) == '\n') {
-    //     inputRead++; 
-    // }
-
 }
 
 void CommentAutomaton::S3(const std::string& input) { 
-    // multiLineComment = true;
     if (inputRead >= input.size()) { 
         return;
     } else if (input.at(inputRead) != '|') {
         if (input.at(inputRead) == '\n') {
             multilineInc++;
         }
-        
+
         inputRead++;
         S3(input);
     } else if (input.at(inputRead) == '|') {
@@ -63,7 +53,6 @@ void CommentAutomaton::S3(const std::string& input) {
 }
 
 void CommentAutomaton::S4(const std::string& input) { 
-    // multiLineComment = true;
     if (input.at(inputRead) == '#') {
         inputRead++;
         return;
@@ -71,8 +60,4 @@ void CommentAutomaton::S4(const std::string& input) {
         inputRead++;
         S3(input);
     } 
-
-    // if (input.at(0) == '\n') {
-    //     inputRead++; 
-    // }
 }

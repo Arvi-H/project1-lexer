@@ -7,6 +7,7 @@
 using namespace std;
 
 void StringAutomaton::S0(const std::string& input) {
+    multilineInc = 0;
     if (input[inputRead] == '\'') {
         inputRead++;
         S1(input);  
@@ -18,25 +19,27 @@ void StringAutomaton::S0(const std::string& input) {
 
 void StringAutomaton::S1(const std::string& input) {
     if (inputRead >= input.size()) {
-        // terminateString = true;
+        terminateString = true;    
         return;
     } else if (input[inputRead] == '\'') {
         inputRead++;
         S2(input);
     } else {
+        if (input.at(inputRead) == '\n') {
+            multiline = true;
+            multilineInc++;
+        }
+
         inputRead++;
         S1(input);
     }
 }
 
 void StringAutomaton::S2(const std::string& input) {
-    if (inputRead >= input.size()) {
-        // terminateString = true;
-        return;
-    } else if (input[inputRead] == '\'') {
+    if (input[inputRead] == '\'') {
         inputRead++;
         S1(input);
-    } else {
+    } else { 
         return;
     }
 }

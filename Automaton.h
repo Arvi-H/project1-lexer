@@ -5,14 +5,15 @@
 class Automaton
 {
 protected:
-    int inputRead = 0;
     int newLines = 0;
     int index = 0;
     TokenType type;
 
 public:
+    bool terminateString = false;
     bool multiline = false;
     int multilineInc = 0;
+    int inputRead = 0;
     Automaton() : Automaton(TokenType::UNDEFINED) {}
     Automaton(TokenType type) { this->type = type; }
 
