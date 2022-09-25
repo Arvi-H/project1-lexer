@@ -20,7 +20,6 @@ int main(int argc, char** argv) {
     Lexer* lexer = new Lexer();
     lexer->Run(myFileString);
     lexer->printTotalTokens();
-    std::cout << std::endl;
 
     delete lexer;
 

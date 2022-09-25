@@ -75,8 +75,14 @@ void Lexer::Run(std::string& input) {
 
         // Check for an empty file
             if (input.empty()) {
-                newToken = new Token(TokenType::ENDFILE, "", lineNumber);
-                tokens.push_back(newToken);
+                // CommentAutomaton a;
+                // if (a.multiLineComment) {
+                //     newToken = new Token(TokenType::ENDFILE, "", (lineNumber+1));
+                //     tokens.push_back(newToken);
+                // } else {
+                    newToken = new Token(TokenType::ENDFILE, "", lineNumber);
+                    tokens.push_back(newToken);
+                // }
                 return;
             }  
         }  
@@ -109,10 +115,10 @@ void Lexer::Run(std::string& input) {
     }
 
 // End of File 
-    if (input.empty()) {
-        newToken = new Token(TokenType::ENDFILE, "", lineNumber);
-        tokens.push_back(newToken);
-    }
+    // if (input.empty()) {
+    //     newToken = new Token(TokenType::ENDFILE, "", lineNumber);
+    //     tokens.push_back(newToken);
+    // }
 }
    
 void Lexer::printTotalTokens() {

@@ -15,8 +15,8 @@ add_executable(project1_lexer
         CommaAutomaton.h
         CommentAutomaton.cpp
         CommentAutomaton.h
-        ENDFILEAutomaton.cpp
-        ENDFILEAutomaton.h
+        EOFAutomaton.cpp
+        EOFAutomaton.h
         FactsAutomaton.cpp
         FactsAutomaton.h
         IDAutomaton.cpp

@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 
+
 using namespace std;
 
 void StringAutomaton::S0(const std::string& input) {
@@ -13,6 +14,7 @@ void StringAutomaton::S0(const std::string& input) {
         Serr();
     }
 }
+
 
 void StringAutomaton::S1(const std::string& input) {
     if (inputRead >= input.size()) {

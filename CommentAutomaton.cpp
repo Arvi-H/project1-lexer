@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 void CommentAutomaton::S0(const std::string& input) {
     if (input.at(inputRead) == '#') {
         inputRead++;
@@ -32,6 +33,7 @@ void CommentAutomaton::S2(const std::string& input) {
 }
 
 void CommentAutomaton::S3(const std::string& input) { 
+    // multiLineComment = true;
     if (inputRead >= input.size()) { 
         return;
     } else if (input.at(inputRead) != '|') {
@@ -44,11 +46,12 @@ void CommentAutomaton::S3(const std::string& input) {
 }
 
 void CommentAutomaton::S4(const std::string& input) { 
+    // multiLineComment = true;
     if (input.at(inputRead) == '#') {
         inputRead++;
         return;
     } else if (input.at(inputRead) == '|') {
         inputRead++;
         S3(input);
-    }
+    } 
 }
