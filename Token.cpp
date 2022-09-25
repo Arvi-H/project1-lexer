@@ -18,10 +18,10 @@ std::string Token::TokenConverter(TokenType type) {
     case TokenType::PERIOD:
         return "PERIOD";
     case TokenType::QUESTION:
-        return "QUESTION";
+        return "Q_MARK";
     case TokenType::RIGHT_PAREN:
         return "RIGHT_PAREN";
-    case TokenType::LEFT_PAREN:
+    case TokenType::LEFT_PAREN: 
         return "LEFT_PAREN";
     case TokenType::SCHEMES:
         return "SCHEMES";
@@ -48,7 +48,7 @@ std::string Token::TokenConverter(TokenType type) {
 std::string Token::toString() {
     std::stringstream out;
 
-    out << "(" << TokenConverter(type) << "," << " \"" << description << "\" " << "," << line << ")";
+    out << "(" << TokenConverter(type) << "," << "\"" << description <<"\"" << "," << line << ")";
     
     return out.str();
 }

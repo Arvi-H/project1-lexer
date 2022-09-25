@@ -1,10 +1,11 @@
 #include "Lexer.h"
 #include <fstream>
 #include <sstream>
-
+#include <iostream>
+ 
 int main(int argc, char** argv) {
 // File I/O
-    std::ifstream input;
+    std::ifstream input(argv[1]);
     std::stringstream in;
 
 // Convert file to a string stream
@@ -19,7 +20,9 @@ int main(int argc, char** argv) {
     Lexer* lexer = new Lexer();
     lexer->Run(myFileString);
     lexer->printTotalTokens();
+    std::cout << std::endl;
 
     delete lexer;
+
     return 0;
 }
