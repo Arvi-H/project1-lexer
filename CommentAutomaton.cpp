@@ -6,25 +6,27 @@
 using namespace std;
 
 void CommentAutomaton::S0(const std::string& input) {
-    if (input.at(inputRead) == '#') {
+    multilineInc = 0;
+
+    if (input[inputRead] == '#') {
         inputRead++;
         S1(input);
     } 
 }
 
 void CommentAutomaton::S1(const std::string& input) {
-     if (input.at(inputRead) != '|') { 
+     if (input[inputRead] != '|') { 
         inputRead++;
         S2(input);
-     } else if (input.at(inputRead) == '|') {
+     } else if (input[inputRead] == '|') {
         multiline = true;
         inputRead++;
         S3(input);
-     }
+     } 
 } 
 
 void CommentAutomaton::S2(const std::string& input) { 
-    if (input.at(inputRead) != '\n') { 
+    if (input[inputRead] != '\n') { 
         inputRead++;
         S2(input);
     } else {
@@ -34,31 +36,41 @@ void CommentAutomaton::S2(const std::string& input) {
 
 void CommentAutomaton::S3(const std::string& input) { 
     int size = input.size();
-    if (inputRead >= size) { 
+    if (inputRead >= size) {
+
+        terminateComment = true;
         return;
-    } else if (input.at(inputRead) != '|') {
-        if (input.at(inputRead) == '\n') {
+    } else if (input[inputRead] != '|') {
+        if (input[inputRead] == '\n') {
             multilineInc++;
         }
 
         inputRead++;
         S3(input);
-    } else if (input.at(inputRead) == '|') {
+    
+    } else if (input[inputRead] == '|') {
         inputRead++;
         S4(input);
-    }
 
-    if (input.at(0) == '\n') {
+    } else if (input[inputRead] == '\n') {
+        multilineInc++;
         inputRead++; 
     }
 }
 
 void CommentAutomaton::S4(const std::string& input) { 
-    if (input.at(inputRead) == '#') {
+    if (input[inputRead] == '#') {
         inputRead++;
         return;
-    } else if (input.at(inputRead) == '|') {
+    } else if (input[inputRead] == '|') {
         inputRead++;
         S3(input);
-    } 
+    } else {
+        if (input[inputRead] == '\n') {
+            S3(input);
+        }
+
+        terminateComment = true;
+        return;
+    }
 }

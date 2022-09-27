@@ -19,6 +19,10 @@ std::string Token::TokenConverter(TokenType type) {
         return "PERIOD";
     case TokenType::QUESTION:
         return "Q_MARK";
+    case TokenType::ADD:
+        return "ADD";
+    case TokenType::MULTIPLY:
+        return "MULTIPLY";
     case TokenType::RIGHT_PAREN:
         return "RIGHT_PAREN";
     case TokenType::LEFT_PAREN: 

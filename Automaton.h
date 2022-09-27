@@ -11,6 +11,7 @@ protected:
 
 public:
     bool terminateString = false;
+    bool terminateComment = false;
     bool multiline = false;
     int multilineInc = 0;
     int inputRead = 0;

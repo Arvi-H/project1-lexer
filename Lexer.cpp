@@ -14,6 +14,8 @@
 #include "StringAutomaton.h"
 #include "CommentAutomaton.h"
 #include "EOFAutomaton.h"
+#include "AddAutomaton.h"
+#include "MultiplyAutomaton.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -46,6 +48,8 @@ void Lexer::CreateAutomata() {
     automata.push_back(new CommaAutomaton());
     automata.push_back(new PeriodAutomaton());
     automata.push_back(new QuestionAutomaton());
+    automata.push_back(new AddAutomaton());
+    automata.push_back(new MultiplyAutomaton());
     automata.push_back(new RightParenAutomaton());
     automata.push_back(new LeftParenAutomaton());
     automata.push_back(new SchemesAutomaton());
@@ -61,9 +65,16 @@ void Lexer::CreateAutomata() {
 void Lexer::Run(std::string& input) {
     int lineNumber = 1;
 
+    if (input.empty()) {
+        newToken = new Token(TokenType::ENDFILE, "", lineNumber);
+        tokens.push_back(newToken);
+        return;
+    }  
+
     while (input.size() > 0) {
         int maxRead = 0;
         maxAutomata = automata.at(0);
+        
         
     // You need to handle whitespace in between tokens
         while (isspace(input.at(0))) {
@@ -76,7 +87,7 @@ void Lexer::Run(std::string& input) {
             input.erase(0,1); 
 
         // Check for an empty file
-            if (input.empty()) {
+            if (input.empty()) {  
                 newToken = new Token(TokenType::ENDFILE, "", lineNumber);
                 tokens.push_back(newToken);
                 return;
@@ -95,11 +106,10 @@ void Lexer::Run(std::string& input) {
         }  
         
 
-        if (maxAutomata->terminateString == true) {
+        if (maxAutomata->terminateString == true || maxAutomata->terminateComment == true) {
             maxRead += maxAutomata->inputRead;
 
             std::string test = input.substr(0, maxRead);
-       
        
             newToken = new Token(TokenType::UNDEFINED, test, lineNumber);
             tokens.push_back(newToken);

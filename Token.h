@@ -8,6 +8,8 @@ enum class TokenType {
     COMMA,
     PERIOD,
     QUESTION,
+    ADD,
+    MULTIPLY,
     RIGHT_PAREN,
     LEFT_PAREN,
     SCHEMES,
