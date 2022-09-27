@@ -1,11 +1,5 @@
 #include "StringAutomaton.h"
 
-#include <iostream>
-#include <sstream>
-
-
-using namespace std;
-
 void StringAutomaton::S0(const std::string& input) {
     multilineInc = 0;
     if (input[inputRead] == '\'') {
@@ -20,7 +14,7 @@ void StringAutomaton::S0(const std::string& input) {
 void StringAutomaton::S1(const std::string& input) {
     int size = input.size();
     if (inputRead >= size) {
-        terminateString = true;    
+        terminateFlag = true;    
         return;
     } else if (input[inputRead] == '\'') {
         inputRead++;

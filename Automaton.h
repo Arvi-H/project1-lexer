@@ -10,8 +10,7 @@ protected:
     TokenType type;
 
 public:
-    bool terminateString = false;
-    bool terminateComment = false;
+    bool terminateFlag = false;
     bool multiline = false;
     int multilineInc = 0;
     int inputRead = 0;

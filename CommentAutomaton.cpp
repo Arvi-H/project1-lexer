@@ -38,7 +38,7 @@ void CommentAutomaton::S3(const std::string& input) {
     int size = input.size();
     if (inputRead >= size) {
 
-        terminateComment = true;
+        terminateFlag = true;
         return;
     } else if (input[inputRead] != '|') {
         if (input[inputRead] == '\n') {
@@ -70,7 +70,7 @@ void CommentAutomaton::S4(const std::string& input) {
             S3(input);
         }
 
-        terminateComment = true;
+        terminateFlag = true;
         return;
     }
 }

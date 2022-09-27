@@ -71,6 +71,7 @@ void Lexer::Run(std::string& input) {
         return;
     }  
 
+// Parallel and Max Alg
     while (input.size() > 0) {
         int maxRead = 0;
         maxAutomata = automata.at(0);
@@ -105,8 +106,8 @@ void Lexer::Run(std::string& input) {
             } 
         }  
         
-
-        if (maxAutomata->terminateString == true || maxAutomata->terminateComment == true) {
+    // Check to see if String or Comment are never terminated
+        if (maxAutomata->terminateFlag == true) {
             maxRead += maxAutomata->inputRead;
 
             std::string test = input.substr(0, maxRead);
